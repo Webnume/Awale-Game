@@ -51,7 +51,7 @@ function usePlay() {
   };
 
   // ajouter au score du joueur si 2 ou 3 graines dans la case puis reset à 0
-  const scoreCalculation = (index) => {
+  const scoreCalculation = (index:number): void => {
     if (awaleArray[index] === 2 || awaleArray[index] === 3) {
       index <= 5 && player === 2
         ? setScore([score[0], score[1] + awaleArray[index]])
@@ -79,6 +79,6 @@ function usePlay() {
 
   const checkIfGameIsOver = () => {};
 
-  return [awaleArray, play, resetGame, player, score];
+  return [awaleArray, play, resetGame, player, score] as const;
 }
 export default usePlay;
