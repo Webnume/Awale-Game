@@ -22,6 +22,9 @@ function Footer({ resetGame }: FooterProps) {
       <a target="_blank" href="https://fr.wikipedia.org/wiki/Awal%C3%A9">
         Les règles sur WikiPedia
       </a>
+      <a target="_blank" href="https://awale-game.vercel.app/">
+        online Vercel
+      </a>
     </footer>
   );
 }

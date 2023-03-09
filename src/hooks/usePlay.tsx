@@ -27,35 +27,34 @@ function usePlay() {
         index !== 0 ? (index -= 1) : (index = 6);
         awaleArray[index] += 1;
         setAwaleArray([...awaleArray]);
-        console.log("active: " + index);
         await unenlight();
         await enlight(index);
+        scoreCalculation(index);
         continue;
       }
       if (index > 5) {
         index !== 11 ? (index += 1) : (index = 5);
         awaleArray[index] += 1;
         setAwaleArray([...awaleArray]);
-        console.log("active: " + index);
         await unenlight();
         await enlight(index);
+        scoreCalculation(index);
       }
     }
-    // scoreCalculation(seedsNumber, index);
     await timer(300);
     await unenlight();
-    scoreCalculation(index);
     whoIsPlaying();
     //je débloque la partie
     setIsPlaying(false);
   };
 
   // ajouter au score du joueur si 2 ou 3 graines dans la case puis reset à 0
-  const scoreCalculation = (index:number): void => {
+  const scoreCalculation = (index: number): void => {
     if (awaleArray[index] === 2 || awaleArray[index] === 3) {
       index <= 5 && player === 2
-        ? setScore([score[0], score[1] + awaleArray[index]])
-        : setScore([score[0] + awaleArray[index], score[1]]);
+        ? setScore([score[0], (score[1] += awaleArray[index])])
+        : setScore([(score[0] += awaleArray[index]), score[1]]);
+      console.log(index, awaleArray[index], score);
       awaleArray[index] = 0;
       setAwaleArray([...awaleArray]);
       return scoreCalculation(index > 5 ? index - 1 : index + 1);
@@ -70,11 +69,7 @@ function usePlay() {
   };
 
   const whoIsPlaying = () => {
-    if (player === 1) {
-      setPlayer(2);
-    } else {
-      setPlayer(1);
-    }
+    player === 1 ? setPlayer(2) : setPlayer(1);
   };
 
   const checkIfGameIsOver = () => {};
