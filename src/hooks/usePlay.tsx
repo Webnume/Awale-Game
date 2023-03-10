@@ -16,49 +16,64 @@ function usePlay() {
     if (isPlaying) return;
     //je stocke puis j'efface le nombre de graines dans la case cliquée
     const seedsNumber = awaleArray[index];
+    const duringPlay = async () => {
+      awaleArray[index] += 1;
+      setAwaleArray([...awaleArray]);
+      await unenlight();
+      await enlight(index);
+    };
     awaleArray[index] = 0;
     //je boucle sur le nombre de graines de la case cliquée
     for (let i = 0; i < seedsNumber; i++) {
       //je fais une pause de 300ms entre chaque graine
       i !== 0 && (await timer(300));
       //je place une graine dans la case suivante
-      // si la case est la 12eme, je place la graine suivante  dans la 1ere case
+      // si la case est la 12eme, je place la graine suivante  dans la 5em case
       if (index <= 5) {
         index !== 0 ? (index -= 1) : (index = 6);
-        awaleArray[index] += 1;
-        setAwaleArray([...awaleArray]);
-        await unenlight();
-        await enlight(index);
-        scoreCalculation(index);
+        duringPlay();
         continue;
       }
       if (index > 5) {
         index !== 11 ? (index += 1) : (index = 5);
-        awaleArray[index] += 1;
-        setAwaleArray([...awaleArray]);
-        await unenlight();
-        await enlight(index);
-        scoreCalculation(index);
+        duringPlay();
       }
     }
     await timer(300);
     await unenlight();
     whoIsPlaying();
     //je débloque la partie
+    console.log(isPlayerIsInHisSide(index));
+    if (isPlayerIsInHisSide(index)) scoreCalculation(index);
     setIsPlaying(false);
   };
 
   // ajouter au score du joueur si 2 ou 3 graines dans la case puis reset à 0
   const scoreCalculation = (index: number): void => {
     if (awaleArray[index] === 2 || awaleArray[index] === 3) {
-      index <= 5 && player === 2
+      isPlayerIsInHisSide(index) && player === 2
         ? setScore([score[0], (score[1] += awaleArray[index])])
         : setScore([(score[0] += awaleArray[index]), score[1]]);
       console.log(index, awaleArray[index], score);
       awaleArray[index] = 0;
       setAwaleArray([...awaleArray]);
-      return scoreCalculation(index > 5 ? index - 1 : index + 1);
+
+      return scoreCalculation(
+        index <= 5
+          ? index === 5
+            ? (index = 5)
+            : index + 1
+          : index === 0
+          ? (index = 6)
+          : index - 1
+      );
     }
+  };
+
+  const isPlayerIsInHisSide = (index: number): boolean => {
+    if (player === 1 && index <= 5) return true;
+    if (player === 2 && index > 5) return true;
+    return false;
   };
 
   const resetGame = async () => {
