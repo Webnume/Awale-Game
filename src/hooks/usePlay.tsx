@@ -3,7 +3,7 @@ import { timer } from "../utils/timer";
 import { enlight, unenlight } from "../utils/ux-ui";
 
 function usePlay() {
-  const initialAwaleArray = [3, 2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 2];
+  const initialAwaleArray = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4];
   const [awaleArray, setAwaleArray] = useState(initialAwaleArray);
   const [isPlaying, setIsPlaying] = useState(false);
   const [player, setPlayer] = useState(1);
@@ -15,16 +15,24 @@ function usePlay() {
     //si la partie est en cours, je ne fais rien
     if (isPlaying) return;
     //je stocke puis j'efface le nombre de graines dans la case cliquée
-    const seedsNumber = awaleArray[index];
+    let seedsNumber = awaleArray[index];
     const duringPlay = async () => {
       awaleArray[index] += 1;
       setAwaleArray([...awaleArray]);
       await unenlight();
       await enlight(index);
     };
+    //si le joueur clique sur une case avec plus de 12 graines, je lui ajoute le reste de la division par 12 pour la règle des 12 graines.
+    if (seedsNumber > 12) {
+      seedsNumber += seedsNumber % 12;
+    }
     awaleArray[index] = 0;
     //je boucle sur le nombre de graines de la case cliquée
     for (let i = 0; i < seedsNumber; i++) {
+      //S'il y a plus de 12 graines, et que j'arrive de nouveau sur la 12eme case alors je saute à la case suivante
+      if (i % 12 === 0) {
+        awaleArray[index] = 0;
+      }
       //je fais une pause de 300ms entre chaque graine
       i !== 0 && (await timer(300));
       //je place une graine dans la case suivante
@@ -43,7 +51,6 @@ function usePlay() {
     await unenlight();
     whoIsPlaying();
     //je débloque la partie
-    console.log(isPlayerIsInHisSide(index));
     if (isPlayerIsInHisSide(index)) scoreCalculation(index);
     setIsPlaying(false);
   };
@@ -54,7 +61,6 @@ function usePlay() {
       isPlayerIsInHisSide(index) && player === 2
         ? setScore([score[0], (score[1] += awaleArray[index])])
         : setScore([(score[0] += awaleArray[index]), score[1]]);
-      console.log(index, awaleArray[index], score);
       awaleArray[index] = 0;
       setAwaleArray([...awaleArray]);
 
@@ -79,9 +85,11 @@ function usePlay() {
   const resetGame = async () => {
     setAwaleArray(initialAwaleArray);
     setPlayer(1);
-    await unenlight();
     setScore([0, 0]);
   };
+
+  // Il faut « nourrir » l'adversaire, c'est-à-dire que, quand celui-ci n'a plus de graines, il faut absolument jouer un coup qui lui permette de rejouer ensuite.
+  const seedsAvailableToPlay = () => {};
 
   const whoIsPlaying = () => {
     player === 1 ? setPlayer(2) : setPlayer(1);
