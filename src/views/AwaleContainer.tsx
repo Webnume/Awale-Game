@@ -8,9 +8,9 @@ function AwaleContainer() {
 
   return (
     <main className="flex flex-col">
-      <h1 className="text-9xl">AWALE</h1>
+      <h1 className="lg:text-9xl text-2xl">AWALE</h1>
       <Score score={score} player={player} />
-      <ul className="list-none bg-[#421b00] w-[800px] rounded-[1rem] p-8 flex flex-wrap">
+      <ul className="list-none bg-[#421b00] lg:max-w-[800px] max-w-[350px] rounded-[1rem] lg:p-8 p-0 flex flex-wrap justify-center">
         {awaleArray?.map((seedNumber: number, index: number) => {
           return (
             <Circle
