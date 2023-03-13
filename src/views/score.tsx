@@ -1,5 +1,3 @@
-import usePlay from "../hooks/usePlay";
-
 type ScoreProps = {
   score: number[];
   player: number;
@@ -8,7 +6,7 @@ type ScoreProps = {
 function Score({ score, player }: ScoreProps) {
   return (
     <>
-      <p>
+      <p className="flex ">
         <b>Player 1</b> {score[0]} - <b>Player 2</b> {score[1]}
       </p>
       Player {player} turn

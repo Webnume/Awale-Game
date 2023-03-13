@@ -3,7 +3,7 @@ import { timer } from "../utils/timer";
 import { enlight, unenlight } from "../utils/ux-ui";
 
 function usePlay() {
-  const initialAwaleArray = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4];
+  const initialAwaleArray = [2, 4, 4, 4, 4, 4, 1, 1, 4, 4, 4, 4];
   const [awaleArray, setAwaleArray] = useState(initialAwaleArray);
   const [isPlaying, setIsPlaying] = useState(false);
   const [player, setPlayer] = useState(1);

@@ -15,8 +15,14 @@ function Circle({ seedNumber, clickHandler, index, player }: CircleProps) {
           ? "pointer-events-none bg-[sienna]"
           : "bg-[#a3461b]"
       }
+      ${
+        ([0, 1, 2, 3, 4, 5].includes(index)) 
+          ? "bg-red"
+          : "bg-[#a3461b]"
+      }
        `}
       onClick={() => clickHandler(index)}
+      // id={"index_" + index}
     >
       {index}
       {seedNumber}
