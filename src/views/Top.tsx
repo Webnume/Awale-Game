@@ -1,7 +1,9 @@
-import Score from "./score";
+// import Score from "./score";
 import { useContext, useState } from "react";
 import { GameContext } from "../App";
 import useWindowSize from "../hooks/useWindowSize";
+import Score from "../components/Score/Score";
+import WhoseTurn from "../components/WhoseTurn/WhoseTurn";
 
 function Top() {
   const gameCore = useContext(GameContext);
@@ -9,17 +11,26 @@ function Top() {
   const size = useWindowSize();
 
   return (
-    <div>
-      <button className="lg:invisible" onClick={() => setOpen(!open)}>
-        MENU
-      </button>
-      {open && size.width>1024 && (
-       <>
-          <h1 className="lg:text-9xl text-2xl">AWALE</h1>
-          <Score score={gameCore.score} player={gameCore.player} />
+    <header className="lg:mb-8">
+      {
+        <button
+          className="lg:invisible rounded-b bg-amber-400"
+          onClick={() => setOpen(!open)}
+        >
+          MENU
+        </button>
+      }
+      {(size.width > 1024 || open) && (
+        <>
+          <section className="flex justify-around items-center">
+            <Score score={gameCore.score} player={2} />
+            <h1 className="lg:text-8xl text-2xl">AWALE</h1>
+            <Score score={gameCore.score} player={1} />
+          </section>
+          <WhoseTurn player={gameCore.player} />
         </>
       )}
-    </div>
+    </header>
   );
 }
 

@@ -2,6 +2,8 @@ import { createContext } from "react";
 import "./App.css";
 import AwaleContainer from "./views/AwaleContainer";
 import usePlay from "./hooks/usePlay";
+import Footer from "./views/Footer";
+import Top from "./views/Top";
 
 interface GameContextType {
   awaleArray: number[];
@@ -19,7 +21,9 @@ function App() {
       value={{ awaleArray, play, resetGame, player, score }}
     >
       <div className="App">
+        <Top />
         <AwaleContainer />
+        <Footer resetGame={resetGame} />
       </div>
     </GameContext.Provider>
   );
