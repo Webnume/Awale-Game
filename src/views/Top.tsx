@@ -14,10 +14,12 @@ function Top() {
     <header className="lg:mb-8 static">
       {
         <button
-          className="lg:invisible rounded-b bg-amber-400 absolute top-0 right-0 p-2"
+          className={`lg:invisible rounded-b bg-amber-400 absolute top-0 right-0 p-1 ${
+            open ? "bg-red-400 sticky" : ""
+          }`}
           onClick={() => setOpen(!open)}
         >
-          MENU
+          {open ? "CLOSE" : "MENU"}
         </button>
       }
       {(size.width > 1024 || open) && (
