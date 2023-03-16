@@ -13,7 +13,7 @@ function Circle({ seedNumber, clickHandler, index, player }: CircleProps) {
         (player === 1 && [0, 1, 2, 3, 4, 5].includes(index)) ||
         (player === 2 && [6, 7, 8, 9, 10, 11].includes(index))
           ? "pointer-events-none bg-[sienna]"
-          : "bg-[#a3461b] "
+          : "bg-[#a3461b]  animate-heartBeat"
       }
       ${[0, 1, 2, 3, 4, 5].includes(index) ? "bg-red" : "bg-[#a3461b]"}
        `}

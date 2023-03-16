@@ -2,7 +2,17 @@
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        heartBeat: {
+          "0%": { transform: "scale(1);" },
+          "100%": { transform: "scale(.97);" },
+        },
+      },
+      animation: {
+        heartBeat: "heartBeat .25s infinite ease-in-out alternate",
+      },
+    },
   },
   plugins: [],
 };

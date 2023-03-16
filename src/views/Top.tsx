@@ -11,7 +11,7 @@ function Top() {
     <header className="lg:mb-8 static">
         <section className="flex justify-around items-center">
           <Score score={gameCore.score} player={2} />
-          <h1 className="lg:text-8xl text-2xl">AWALE</h1>
+          <h1 className="lg:text-8xl text-2xl text-[#421b00]">AWALE</h1>
           <Score score={gameCore.score} player={1} />
         </section>
         <WhoseTurn player={gameCore.player} />

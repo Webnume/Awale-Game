@@ -68,6 +68,6 @@ button:focus-visible {
 }
 @media (hover: hover) {
     li:hover {
-      background-color: black;
+      background-color: red;
     }
   }
