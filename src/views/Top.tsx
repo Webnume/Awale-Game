@@ -12,26 +12,28 @@ function Top() {
 
   return (
     <header className="lg:mb-8 static">
-      {
+      {/* {
         <button
           className={`lg:invisible rounded-b bg-amber-400 absolute top-0 right-0 p-1 ${
-            open ? "bg-red-400 sticky" : ""
+            open ? "bg-red-400" : ""
           }`}
           onClick={() => setOpen(!open)}
         >
           {open ? "CLOSE" : "MENU"}
         </button>
-      }
-      {(size.width > 1024 || open) && (
-        <>
-          <section className="flex justify-around items-center">
-            <Score score={gameCore.score} player={2} />
-            <h1 className="lg:text-8xl text-2xl">AWALE</h1>
-            <Score score={gameCore.score} player={1} />
-          </section>
+      } */}
+      {/* {(size.width > 1024 || open) && ( */}
+      <>
+        <section className="flex justify-around items-center">
+          <Score score={gameCore.score} player={2} />
+          <h1 className="lg:text-8xl text-2xl">AWALE</h1>
+          <Score score={gameCore.score} player={1} />
+        </section>
+        <section className="max-lg:absolute max-lg:top-[48%] max-lg:left-[38%] max-lg:text-white max-lg:w-[90px]">
           <WhoseTurn player={gameCore.player} />
-        </>
-      )}
+        </section>
+      </>
+      {/* )} */}
     </header>
   );
 }
