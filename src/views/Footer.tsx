@@ -13,7 +13,7 @@ function Footer({ resetGame }: FooterProps) {
           RESET
         </button>
       }
-      <section className="flex justify-evenly w-full">
+      <section className="flex justify-evenly w-full flex-col">
         <a
           target="_blank"
           href="https://www.youtube.com/watch?v=atg9dZq2q0c&ab_channel=Videoregles.Net"
