@@ -29,7 +29,7 @@ function Top() {
           <h1 className="lg:text-8xl text-2xl">AWALE</h1>
           <Score score={gameCore.score} player={1} />
         </section>
-        <section className="max-lg:absolute max-lg:top-[48%] max-lg:left-[38%] max-lg:text-white max-lg:w-[90px]">
+        <section className="max-lg:absolute max-lg:top-[44%] max-lg:left-[38%] max-lg:text-white max-lg:w-[90px]">
           <WhoseTurn player={gameCore.player} />
         </section>
       </>
