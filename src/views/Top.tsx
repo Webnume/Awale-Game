@@ -11,10 +11,10 @@ function Top() {
   const size = useWindowSize();
 
   return (
-    <header className="lg:mb-8">
+    <header className="lg:mb-8 static">
       {
         <button
-          className="lg:invisible rounded-b bg-amber-400"
+          className="lg:invisible rounded-b bg-amber-400 absolute top-0 right-0 p-2"
           onClick={() => setOpen(!open)}
         >
           MENU

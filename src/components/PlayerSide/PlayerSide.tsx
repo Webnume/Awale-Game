@@ -10,7 +10,7 @@ function PlayerSide({ player }: { player: number }) {
 
   return (
     <ul
-      className={`list-none bg-[#421b00] lg:w-[800px] w-[50vw] rounded-[1rem] lg:p-8 p-0 flex flex-wrap justify-center flex-col-reverse lg:flex-row items-center`}
+      className={`list-none bg-[#421b00] lg:w-[800px] min-w-[50%] max-lg:h-[100vh] rounded-[1rem] lg:p-8 p-0 flex flex-wrap justify-center flex-col-reverse lg:flex-row items-center`}
     >
       {gameCore.awaleArray.map((seedNumber: number, index: number) => {
         if (playerIndex.includes(index)) {
