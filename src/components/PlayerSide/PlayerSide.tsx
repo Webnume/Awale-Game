@@ -11,7 +11,7 @@ function PlayerSide({ player }: { player: number }) {
 
   return (
     <ul
-      className={`list-none bg-[#421b00] min-w-[50%] rounded-[1rem] lg:p-8 p-0 flex flex-wrap justify-center flex-col-reverse lg:flex-row items-center`}
+      className={`list-none bg-[#421b00] min-w-[50%] rounded-[1rem] lg:p-8 p-0 flex flex-wrap justify-center flex-col-reverse lg:flex-row items-center border-2`}
     >
       {
         <span className="text-white lg:text-xl max-lg:invisible">
