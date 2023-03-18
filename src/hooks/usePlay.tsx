@@ -8,7 +8,7 @@ function usePlay() {
   const [awaleArray, setAwaleArray] = useState([...initialAwaleArray]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [player, setPlayer] = useState(1);
-  const [score, setScore] = useState([0, 0]);
+  const [score, setScore] = useState([0, 10]);
 
   const play = async (index: number) => {
     //je bloque la partie pendant le déroulement de la fonction
