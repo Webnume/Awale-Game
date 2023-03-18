@@ -12,14 +12,14 @@ function Score({ score, player }: ScoreProps) {
           player === 2 && "max-lg:flex-row-reverse"
         } ${
           player === winner && score[0] !== score[1]
-            ? "text-goldText border-gold"
+            ? "border-gold"
             : ""
         } rounded lg:border-2 shadow-2xl items-center mb-[.3rem]`}
       >
         <span
           className={`lg:text-xl ${
             player === winner && score[0] !== score[1]
-              ? "bg-gold text-goldText border-gold"
+              ? "bg-gold  border-gold"
               : "bg-brown text-white"
           }  lg:p-2 p-1`}
         >
