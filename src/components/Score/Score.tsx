@@ -4,14 +4,25 @@ type ScoreProps = {
 };
 
 function Score({ score, player }: ScoreProps) {
+  const winner = score[0] > score[1] ? 1 : 2;
   return (
     <>
       <div
         className={`flex lg:flex-col ${
           player === 2 && "max-lg:flex-row-reverse"
+        } ${
+          player === winner && score[0] !== score[1]
+            ? "text-goldText border-gold"
+            : ""
         } rounded lg:border-2 shadow-2xl items-center mb-[.3rem]`}
       >
-        <span className="lg:text-xl bg-[#421b00] text-white lg:p-2 p-1">
+        <span
+          className={`lg:text-xl ${
+            player === winner && score[0] !== score[1]
+              ? "bg-gold text-goldText border-gold"
+              : "bg-brown text-white"
+          }  lg:p-2 p-1`}
+        >
           PLAYER {player === 1 ? "1" : "2"}
         </span>
         <h2 className="lg:text-5xl p-1">

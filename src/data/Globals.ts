@@ -1,4 +1,5 @@
-export default {
+export default  {
+  //   INITIALAWALEARRAY: [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   INITIALAWALEARRAY: [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
   PLAYER1SIDE: [6, 7, 8, 9, 10, 11],
   PLAYER2SIDE: [0, 1, 2, 3, 4, 5],

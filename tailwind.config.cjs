@@ -13,6 +13,14 @@ module.exports = {
         heartBeat: "heartBeat .35s infinite ease-in-out alternate",
       },
     },
+    colors: {
+      gold: "#FFD700",
+      goldText: "#A38A00",
+      brown: "#421B00",
+      white: "#FFFFFF",
+      sienna: "#A0522D",
+      active: "#a3461b",
+    },
   },
   plugins: [],
 };
