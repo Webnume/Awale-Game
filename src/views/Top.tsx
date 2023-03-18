@@ -14,7 +14,7 @@ function Top() {
           <h1 className="lg:text-8xl text-2xl text-[#421b00]">AWALE</h1>
           <Score score={gameCore.score} player={1} />
         </section>
-        <WhoseTurn player={gameCore.player} />
+        {/* <WhoseTurn player={gameCore.player} /> */}
     </header>
   );
 }

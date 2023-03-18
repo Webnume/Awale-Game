@@ -10,7 +10,7 @@ module.exports = {
         },
       },
       animation: {
-        heartBeat: "heartBeat .25s infinite ease-in-out alternate",
+        heartBeat: "heartBeat .35s infinite ease-in-out alternate",
       },
     },
   },

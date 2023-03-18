@@ -6,7 +6,7 @@ function Footer({ resetGame }: FooterProps) {
     <footer className=" items-center flex justify-evenly flex-col lg:mt-8">
       {
         <button
-          className="bg-[#421b00] text-[#f2e9e4] lg:text-[1.5rem] font-bold rounded-[1rem] lg:p-4 m-3 max-w-[10rem]"
+          className="bg-[#421b00] text-[#f2e9e4] lg:text-[1.5rem] font-bold rounded-[1rem] lg:p-4 m-1 max-w-[10rem]"
           type="reset"
           onClick={() => resetGame()}
         >
