@@ -53,6 +53,7 @@ function usePlay() {
     whoIsPlaying();
     //je débloque la partie
     if (isPlayerIsInHisSide(index)) scoreCalculation(index);
+    checkIfGameIsOver();
     setIsPlaying(false);
   };
 
@@ -78,15 +79,15 @@ function usePlay() {
   };
 
   const isPlayerIsInHisSide = (index: number): boolean => {
-    if (player === 1 && index <= 5) return true;
-    if (player === 2 && index > 5) return true;
+    if (player === 1 && index > 5) return true;
+    if (player === 2 && index <= 5) return true;
     return false;
   };
 
   const resetGame = () => {
     setAwaleArray([...initialAwaleArray]);
     setPlayer(1);
-    setScore([0, 0]);
+    setScore([0, 25]);
   };
 
   // Il faut « nourrir » l'adversaire, c'est-à-dire que, quand celui-ci n'a plus de graines, il faut absolument jouer un coup qui lui permette de rejouer ensuite.
@@ -100,7 +101,12 @@ function usePlay() {
     player === 1 ? setPlayer(2) : setPlayer(1);
   };
 
-  const checkIfGameIsOver = () => {};
+  const checkIfGameIsOver = () => {
+    if (score[0] > 24 || score[1] > 24) {
+      alert(`Game Over !!! ${player}Want to continue the game or reset it ?`);
+      return true;
+    }
+  };
 
   return [awaleArray, play, resetGame, player, score] as const;
 }

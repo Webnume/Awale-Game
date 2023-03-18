@@ -21,6 +21,7 @@ function Circle({ seedNumber, clickHandler, index, player }: CircleProps) {
       onClick={() => clickHandler(index)}
     >
       {seedNumber}
+      {/* {index} */}
     </li>
   );
 }
