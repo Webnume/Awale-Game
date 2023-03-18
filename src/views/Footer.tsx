@@ -1,3 +1,5 @@
+import GLOBALS from "../data/Globals";
+
 type FooterProps = {
   resetGame: () => void;
 };
@@ -14,24 +16,11 @@ function Footer({ resetGame }: FooterProps) {
         </button>
       }
       <section className="flex justify-evenly w-full flex-col">
-        <a
-          target="_blank"
-          href="https://www.youtube.com/watch?v=atg9dZq2q0c&ab_channel=Videoregles.Net"
-        >
-          Les règles sur YouTube (Côte d'ivoire)
-        </a>
-        <a
-          target="_blank"
-          href="https://www.youtube.com/watch?v=HunzMxlbghQ&ab_channel=FirstStepTours"
-        >
-          Les règles sur YouTube (Ghana/ Togo)
-        </a>
-        <a target="_blank" href="https://fr.wikipedia.org/wiki/Awal%C3%A9">
-          Les règles sur WikiPedia
-        </a>
-        <a target="_blank" href="https://awale-game.vercel.app/">
-          Online Vercel
-        </a>
+        {GLOBALS.OUTLINKS.map((outlink) => (
+          <a key={outlink.title} target="_blank" href={outlink.links}>
+            {outlink.title}
+          </a>
+        ))}
       </section>
     </footer>
   );

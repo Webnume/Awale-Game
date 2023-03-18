@@ -89,7 +89,9 @@ function usePlay() {
   };
 
   // Il faut « nourrir » l'adversaire, c'est-à-dire que, quand celui-ci n'a plus de graines, il faut absolument jouer un coup qui lui permette de rejouer ensuite.
-  const seedsAvailableToPlay = () => {};
+  const seedsAvailableToPlay = () => {
+    
+  };
 
   const whoIsPlaying = () => {
     player === 1 ? setPlayer(2) : setPlayer(1);

@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import Circle from "../../components/Circle/Circle";
 import { GameContext } from "../../App";
+import GLOBALS from "../../data/Globals";
 
 function PlayerSide({ player }: { player: number }) {
   const gameCore = useContext(GameContext);
-  const player1Index = [6, 7, 8, 9, 10, 11];
-  const player2Index = [0, 1, 2, 3, 4, 5];
+  const player1Index = GLOBALS.PLAYER1SIDE;
+  const player2Index = GLOBALS.PLAYER2SIDE;
   const playerIndex = player === 1 ? player1Index : player2Index;
 
   return (
