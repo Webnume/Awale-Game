@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { timer } from "../utils/timer";
 import { enlight, unenlight } from "../utils/ux-ui";
+import GLOBALS from "../data/Globals";
 
 function usePlay() {
-  const initialAwaleArray = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4];
-  const [awaleArray, setAwaleArray] = useState(initialAwaleArray);
+  const initialAwaleArray = GLOBALS.INITIALAWALEARRAY;
+  const [awaleArray, setAwaleArray] = useState([...initialAwaleArray]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [player, setPlayer] = useState(1);
   const [score, setScore] = useState([0, 0]);
@@ -82,18 +83,20 @@ function usePlay() {
     return false;
   };
 
-  const resetGame = async () => {
-    setAwaleArray(initialAwaleArray);
+  const resetGame = () => {
+    setAwaleArray([...initialAwaleArray]);
     setPlayer(1);
     setScore([0, 0]);
   };
 
   // Il faut « nourrir » l'adversaire, c'est-à-dire que, quand celui-ci n'a plus de graines, il faut absolument jouer un coup qui lui permette de rejouer ensuite.
-  const seedsAvailableToPlay = () => {
-    
+  const noSeedsAvailableToPlay = (arr: number[]) => {
+    return arr.every((item) => item === 0);
   };
 
   const whoIsPlaying = () => {
+    if (noSeedsAvailableToPlay(awaleArray.slice(0, 6))) return setPlayer(1);
+    if (noSeedsAvailableToPlay(awaleArray.slice(6))) return setPlayer(2);
     player === 1 ? setPlayer(2) : setPlayer(1);
   };
 
