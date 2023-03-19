@@ -19,6 +19,7 @@ module.exports = {
       white: "#FFFFFF",
       sienna: "#A0522D",
       active: "#f85b10",
+      success :"#4FBF26"
     },
   },
   plugins: [],

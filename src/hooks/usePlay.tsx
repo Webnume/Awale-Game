@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { timer } from "../utils/timer";
-import { enlight, unenlight } from "../utils/ux-ui";
+import { enlight, unenlight, winLight } from "../utils/ux-ui";
 import GLOBALS from "../utils/Globals";
 
 function usePlay() {
@@ -11,6 +11,7 @@ function usePlay() {
   const [score, setScore] = useState([0, 0]);
 
   const play = async (index: number) => {
+      await unenlight();
     //je bloque la partie pendant le déroulement de la fonction
     setIsPlaying(true);
     //si la partie est en cours, je ne fais rien
@@ -20,7 +21,6 @@ function usePlay() {
     const duringPlay = async () => {
       awaleArray[index] += 1;
       setAwaleArray([...awaleArray]);
-      await unenlight();
       await enlight(index);
     };
     //si le joueur clique sur une case avec plus de 12 graines, je lui ajoute le reste de la division par 12 pour la règle des 12 graines.
@@ -58,8 +58,11 @@ function usePlay() {
   };
 
   // ajouter au score du joueur si 2 ou 3 graines dans la case puis reset à 0
-  const scoreCalculation = (index: number): void => {
+  const scoreCalculation = async (index: number): Promise<void> => {
     if (awaleArray[index] === 2 || awaleArray[index] === 3) {
+      await winLight(index);
+      await timer(300);
+      await unenlight();
       isPlayerIsInHisSide(index) && player === 2
         ? setScore([score[0], (score[1] += awaleArray[index])])
         : setScore([(score[0] += awaleArray[index]), score[1]]);
