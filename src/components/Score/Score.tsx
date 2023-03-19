@@ -12,7 +12,7 @@ function Score({ score, player }: ScoreProps) {
           player === 2 && "max-lg:flex-row-reverse"
         } ${
           player === winner && score[0] !== score[1] ? "border-gold" : ""
-        } rounded border-2 shadow-2xl items-center mb-[.3rem]`}
+        } rounded border-2 shadow-2xl items-center`}
       >
         {player === winner &&
         score[0] !== score[1] &&

@@ -24,8 +24,8 @@ function usePlay() {
       await enlight(index);
     };
     //si le joueur clique sur une case avec plus de 12 graines, je lui ajoute le reste de la division par 12 pour la règle des 12 graines.
-    if (seedsNumber > 12) {
-      seedsNumber += seedsNumber % 12;
+    if (seedsNumber >= 12) {
+      seedsNumber += seedsNumber !== 12 ? seedsNumber % 12 : 1;
     }
     awaleArray[index] = 0;
     //je boucle sur le nombre de graines de la case cliquée
