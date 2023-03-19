@@ -1,4 +1,4 @@
-import GLOBALS from "../../data/Globals";
+import GLOBALS from "../../utils/Globals";
 
 type CircleProps = {
   seedNumber: number;

@@ -23,7 +23,7 @@ function App() {
       <div className="App">
         <Top />
         <AwaleContainer />
-        <Footer resetGame={resetGame} />
+        <Footer resetGame={resetGame} score={score} />
       </div>
     </GameContext.Provider>
   );

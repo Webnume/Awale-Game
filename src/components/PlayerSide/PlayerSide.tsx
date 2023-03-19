@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import Circle from "../../components/Circle/Circle";
 import { GameContext } from "../../App";
-import GLOBALS from "../../data/Globals";
+import GLOBALS from "../../utils/Globals";
 
 function PlayerSide({ player }: { player: number }) {
   const gameCore = useContext(GameContext);

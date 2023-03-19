@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { GameContext } from "../App";
 import Score from "../components/Score/Score";
-import GLOBALS from "../data/Globals";
+import GLOBALS from "../utils/Globals";
 
 function Top() {
   const gameCore = useContext(GameContext);

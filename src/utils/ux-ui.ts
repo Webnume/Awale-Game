@@ -1,4 +1,4 @@
-import GLOBALS from "../data/Globals";
+import GLOBALS from "./Globals";
 
 export const enlight = (index: number) => {
   const circle = document.querySelectorAll("li");

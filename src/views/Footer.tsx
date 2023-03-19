@@ -1,20 +1,18 @@
-import GLOBALS from "../data/Globals";
+import GLOBALS from "../utils/Globals";
 
 type FooterProps = {
   resetGame: () => void;
+  score: number[];
 };
-function Footer({ resetGame }: FooterProps) {
+function Footer({ resetGame, score }: FooterProps) {
   return (
     <footer className=" items-center flex justify-evenly flex-col lg:mt-8">
       {
         <section>
-          <button
-            className={`bg-brown text-white lg:text-[1.2rem] font-bold rounded-[1rem] lg:p-3 m-1 `}
-            type="reset"
-            onClick={() => resetGame()}
-          >
-            CONTINUE
-          </button>
+          {<p>
+            <i className="fa-solid fa-crown fa-2xl text-gold"></i>
+            PLAYER {score[0] > score[1] ? 1 : 2} WIN THE GAME 
+          </p>}
 
           <button
             className={`bg-brown text-white lg:text-[1.2rem] font-bold rounded-[1rem] lg:p-3 m-1 `}

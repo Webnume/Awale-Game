@@ -8,14 +8,19 @@ function Score({ score, player }: ScoreProps) {
   return (
     <>
       <div
-        className={`flex lg:flex-col ${
+        className={`relative flex lg:flex-col ${
           player === 2 && "max-lg:flex-row-reverse"
         } ${
-          player === winner && score[0] !== score[1]
-            ? "border-gold"
-            : ""
+          player === winner && score[0] !== score[1] ? "border-gold" : ""
         } rounded border-2 shadow-2xl items-center mb-[.3rem]`}
       >
+        {player === winner &&
+        score[0] !== score[1] &&
+        (score[0] > 24 || score[1] > 24) ? (
+          <i className="fa-solid fa-crown fa-2xl  fa-shake text-gold absolute -top-1 "></i>
+        ) : (
+          ""
+        )}
         <span
           className={`lg:text-xl ${
             player === winner && score[0] !== score[1]

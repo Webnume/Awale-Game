@@ -1,5 +1,3 @@
-import GLOBALS from "../../data/Globals";
-
 type whoseTurnProps = {
   player: number;
 };

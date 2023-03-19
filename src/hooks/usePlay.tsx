@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { timer } from "../utils/timer";
 import { enlight, unenlight } from "../utils/ux-ui";
-import GLOBALS from "../data/Globals";
+import GLOBALS from "../utils/Globals";
 
 function usePlay() {
   const initialAwaleArray = GLOBALS.INITIALAWALEARRAY;
@@ -53,7 +53,7 @@ function usePlay() {
     whoIsPlaying();
     //je débloque la partie
     if (isPlayerIsInHisSide(index)) scoreCalculation(index);
-    checkIfGameIsOver();
+    // checkIfGameIsOver();
     setIsPlaying(false);
   };
 
@@ -101,12 +101,16 @@ function usePlay() {
     player === 1 ? setPlayer(2) : setPlayer(1);
   };
 
-  const checkIfGameIsOver = () => {
-    if (score[0] > 24 || score[1] > 24) {
-      alert(`Game Over !!! ${player}Want to continue the game or reset it ?`);
-      return true;
-    }
-  };
+  // const checkIfGameIsOver = () => {
+  // if (score[0] > 24 || score[1] > 24) {
+  //   alert(
+  //     `Game Over !!! Player ${
+  //       score[0] > score[1] ? 1 : 2
+  //     } Win !!! Want to continue the game or reset it ?`
+  //   );
+  //   return true;
+  // }
+  // };
 
   return [awaleArray, play, resetGame, player, score] as const;
 }
