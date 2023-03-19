@@ -18,7 +18,7 @@ module.exports = {
       brown: "#421B00",
       white: "#FFFFFF",
       sienna: "#A0522D",
-      active: "#a3461b",
+      active: "#f85b10",
     },
   },
   plugins: [],

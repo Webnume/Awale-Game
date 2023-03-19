@@ -5,12 +5,12 @@ export default {
   PLAYER2SIDE: [6, 7, 8, 9, 10, 11],
   OUTLINKS: [
     {
-      title: "Les règles sur YouTube (Côte d'ivoire)",
+      title: "Les règles sur YouTube (Côte d'ivoire) : Capture à 2 ou 3 graines",
       links:
         "https://www.youtube.com/watch?v=atg9dZq2q0c&ab_channel=Videoregles.Net",
     },
     {
-      title: "Les règles sur YouTube (Ghana/ Togo)",
+      title: "Les règles sur YouTube (Ghana/ Togo) : Capture à 4 graines",
       links:
         "https://www.youtube.com/watch?v=HunzMxlbghQ&ab_channel=FirstStepTours",
     },
