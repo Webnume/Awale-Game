@@ -96,8 +96,8 @@ function usePlay() {
   };
 
   const whoIsPlaying = () => {
-    if (noSeedsAvailableToPlay(awaleArray.slice(0, 6))) return setPlayer(1);
-    if (noSeedsAvailableToPlay(awaleArray.slice(6))) return setPlayer(2);
+    if (noSeedsAvailableToPlay(awaleArray.slice(0, 6))) return setPlayer(2);
+    if (noSeedsAvailableToPlay(awaleArray.slice(6))) return setPlayer(1);
     player === 1 ? setPlayer(2) : setPlayer(1);
   };
 
