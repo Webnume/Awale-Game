@@ -87,7 +87,7 @@ function usePlay() {
   const resetGame = () => {
     setAwaleArray([...initialAwaleArray]);
     setPlayer(1);
-    setScore([0, 25]);
+    setScore([0, 0]);
   };
 
   // Il faut « nourrir » l'adversaire, c'est-à-dire que, quand celui-ci n'a plus de graines, il faut absolument jouer un coup qui lui permette de rejouer ensuite.

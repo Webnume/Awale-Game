@@ -9,10 +9,12 @@ function Footer({ resetGame, score }: FooterProps) {
     <footer className=" items-center flex justify-evenly flex-col lg:mt-8">
       {
         <section>
-          {<p>
-            <i className="fa-solid fa-crown fa-2xl text-gold"></i>
-            PLAYER {score[0] > score[1] ? 1 : 2} WIN THE GAME 
-          </p>}
+          { (score[0] > 24 || score[1] > 24) &&
+            <p>
+              <i className="fa-solid fa-crown fa-2xl text-gold"></i>
+              PLAYER {score[0] > 24 ? 1 : 2} WINS THE GAME
+            </p>
+          }
 
           <button
             className={`bg-brown text-white lg:text-[1.2rem] font-bold rounded-[1rem] lg:p-3 m-1 `}
