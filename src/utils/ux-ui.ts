@@ -20,3 +20,9 @@ export const winLight = async (index: number) => {
   await timer(300)
   circle[index].classList.add("bg-success");
 };
+
+export const unWinLight = async (index: number) => {
+  const circle = document.querySelectorAll("li");
+  circle[index].classList.remove("bg-sienna");
+  circle[index].classList.remove("bg-success");
+};

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { timer } from "../utils/timer";
-import { enlight, unenlight, winLight } from "../utils/ux-ui";
+import { enlight, unenlight, winLight,unWinLight } from "../utils/ux-ui";
 import GLOBALS from "../utils/Globals";
 
 function usePlay() {
@@ -11,7 +11,7 @@ function usePlay() {
   const [score, setScore] = useState([0, 0]);
 
   const play = async (index: number) => {
-      await unenlight();
+    await unenlight();
     //je bloque la partie pendant le déroulement de la fonction
     setIsPlaying(true);
     //si la partie est en cours, je ne fais rien
@@ -62,7 +62,7 @@ function usePlay() {
     if (awaleArray[index] === 2 || awaleArray[index] === 3) {
       await winLight(index);
       await timer(380);
-      await unenlight();
+      await unWinLight(index);
       isPlayerIsInHisSide(index) && player === 2
         ? setScore([score[0], (score[1] += awaleArray[index])])
         : setScore([(score[0] += awaleArray[index]), score[1]]);
