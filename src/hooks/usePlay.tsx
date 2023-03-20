@@ -61,7 +61,7 @@ function usePlay() {
   const scoreCalculation = async (index: number): Promise<void> => {
     if (awaleArray[index] === 2 || awaleArray[index] === 3) {
       await winLight(index);
-      await timer(300);
+      await timer(380);
       await unenlight();
       isPlayerIsInHisSide(index) && player === 2
         ? setScore([score[0], (score[1] += awaleArray[index])])
